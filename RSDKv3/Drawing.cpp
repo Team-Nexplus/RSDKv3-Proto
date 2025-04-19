@@ -138,7 +138,7 @@ int InitRenderDevice()
     int w          = landscape ? dm.h : 360;
 
     SCREEN_XSIZE = ((float)SCREEN_YSIZE * h / w);
-    SCREEN_XSIZE = 360
+    SCREEN_XSIZE = 360;
 #endif
 
     SCREEN_CENTERX = SCREEN_XSIZE / 2;
