@@ -3875,7 +3875,7 @@ void ProcessScript(int scriptCodeStart, int jumpTableStart, byte scriptSub)
                 for (int f = 0; f < touches; ++f) {
                     if (touchDown[f] && touchX[f] > scriptEng.operands[0] && touchX[f] < scriptEng.operands[2] && touchY[f] > scriptEng.operands[1]
                         && touchY[f] < scriptEng.operands[3]) {
-                        scriptEng.checkResult = !f;
+                        scriptEng.checkResult = ++f;
                     }
                 }
                 break;
