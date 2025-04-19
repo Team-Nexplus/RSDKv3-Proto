@@ -23,9 +23,9 @@ ushort tintLookupTable[0x10000];
 #define maxVal(a, b) (a >= b ? a : b)
 #define minVal(a, b) (a <= b ? a : b)
 
-int SCREEN_XSIZE        = 320;
-int SCREEN_CENTERX      = 320 / 2;
-int SCREEN_XSIZE_CONFIG = 320;
+int SCREEN_XSIZE        = 360;
+int SCREEN_CENTERX      = 360 / 2;
+int SCREEN_XSIZE_CONFIG = 360;
 
 int touchWidth  = SCREEN_XSIZE;
 int touchHeight = SCREEN_YSIZE;
@@ -128,22 +128,24 @@ int InitRenderDevice()
 #endif
 
 #if RETRO_GAMEPLATFORM == RETRO_MOBILE
-    Engine.startFullScreen = false;
+    Engine.startFullScreen = true;
 
     SDL_DisplayMode dm;
     SDL_GetDesktopDisplayMode(0, &dm);
 
     bool landscape = dm.h < dm.w;
     int h          = landscape ? 360 : dm.h;
-    int w          = landscape ? 360 : dm.h;
+    int w          = landscape ? dm.h : 360;
+
     SCREEN_XSIZE = ((float)SCREEN_YSIZE * h / w);
+    SCREEN_XSIZE = 360;
 #endif
 
     SCREEN_CENTERX = SCREEN_XSIZE / 2;
     viewOffsetX    = 0;
 
-    Engine.window = SDL_CreateWindow(gameTitle, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_XSIZE,
-                                     SCREEN_YSIZE, SDL_WINDOW_ALLOW_HIGHDPI | flags);
+    Engine.window = SDL_CreateWindow(gameTitle, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_XSIZE * Engine.windowScale,
+                                     SCREEN_YSIZE * Engine.windowScale, SDL_WINDOW_ALLOW_HIGHDPI | flags);
 #if !RETRO_USING_OPENGL
     Engine.renderer = SDL_CreateRenderer(Engine.window, -1, SDL_RENDERER_ACCELERATED);
 #endif
@@ -351,7 +353,7 @@ int InitRenderDevice()
         vw = mode.h;
         vh = mode.w;
     }
-    SetScreenDimensions(360, SCREEN_YSIZE, 360, vh);
+    SetScreenDimensions(SCREEN_XSIZE, SCREEN_YSIZE, vw, vh);
 #elif RETRO_USING_SDL2 && RETRO_USING_OPENGL
     int drawableWidth, drawableHeight;
     SDL_GL_GetDrawableSize(Engine.window, &drawableWidth, &drawableHeight);
