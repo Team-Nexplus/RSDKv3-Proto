@@ -136,8 +136,6 @@ int InitRenderDevice()
     bool landscape = dm.h < dm.w;
     int h          = landscape ? 360 : dm.h;
     int w          = landscape ? dm.h : 360;
-
-    SCREEN_XSIZE = ((float)SCREEN_YSIZE * h / w);
     SCREEN_XSIZE = 360;
 #endif
 
