@@ -145,7 +145,7 @@ int InitRenderDevice()
     viewOffsetX    = 0;
 
     Engine.window = SDL_CreateWindow(gameTitle, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_XSIZE * Engine.windowScale,
-                                     SCREEN_YSIZE * Engine.windowScale, SDL_WINDOW_ALLOW_HIGHDPI | flags);
+                                     SCREEN_YSIZE * Engine.windowScale | flags);
 #if !RETRO_USING_OPENGL
     Engine.renderer = SDL_CreateRenderer(Engine.window, -1, SDL_RENDERER_ACCELERATED);
 #endif
@@ -353,7 +353,7 @@ int InitRenderDevice()
         vw = mode.h;
         vh = mode.w;
     }
-    SetScreenDimensions(SCREEN_XSIZE, SCREEN_YSIZE, vw, vh);
+    SetScreenDimensions(360, SCREEN_YSIZE, 360, vh);
 #elif RETRO_USING_SDL2 && RETRO_USING_OPENGL
     int drawableWidth, drawableHeight;
     SDL_GL_GetDrawableSize(Engine.window, &drawableWidth, &drawableHeight);
