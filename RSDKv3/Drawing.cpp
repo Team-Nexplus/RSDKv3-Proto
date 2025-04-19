@@ -128,7 +128,7 @@ int InitRenderDevice()
 #endif
 
 #if RETRO_GAMEPLATFORM == RETRO_MOBILE
-    Engine.startFullScreen = true;
+    Engine.startFullScreen = false;
 
     SDL_DisplayMode dm;
     SDL_GetDesktopDisplayMode(0, &dm);
