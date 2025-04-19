@@ -1,11 +1,22 @@
 ![](header.png?raw=true)
 
-A complete decompilation of Retro Engine v3.
+RSDKv3 Decompilation altered to run the iOS CD Prototypes.
++ Without assets from the official release (or a prototype), this decompilation will not run.
 
-# **SUPPORT THE OFFICIAL RELEASE OF SONIC CD**
-+ Without assets from the official release, this decompilation will not run.
+# **GETTING THE PROTOTYPE ASSETS OF SONIC CD**
++ You can get a prototype build from:
+  * Via [Obscure Gamers](https://www.obscuregamers.com/threads/sonic-cd-2011-remaster-prototypes.4500)
+  * Via [Sonic Retro](https://forums.sonicretro.org/index.php?threads/sonic-cd-2011-remaster-prototypes.43630)
+  * Direct link via [Mega.io](https://mega.nz/folder/PvAGWRhY#4rlRt0WeDpBwh7wFOIvuMQ)
 
-+ You can get an official release of Sonic CD from:
+## Running the game
++ Open the downloaded zip file, open the `Sonic CD.app` folder and extract the `Data.rsdk` file
+  * On Windows, move the `Data.rsdk` file to the same folder as the `.exe` file
+  * On Linux, move the `Data.rsdk` file to the same folder as the game binary
+  * On MacOS, move the `Data.rsdk` file to the same folder as the `.app` file
+
+## **GETTING THE RELEASE ASSETS OF SONIC CD**
++ If you want to run a release build of CD, you can get an official release of Sonic CD from:
   * Windows
     * Via Steam, whether it's the original release or from [Sonic Origins](https://store.steampowered.com/app/1794960)
     * Via the Epic Games Store, from [Sonic Origins](https://store.epicgames.com/en-US/p/sonic-origins)
