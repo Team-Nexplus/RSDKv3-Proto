@@ -23,9 +23,9 @@ ushort tintLookupTable[0x10000];
 #define maxVal(a, b) (a >= b ? a : b)
 #define minVal(a, b) (a <= b ? a : b)
 
-int SCREEN_XSIZE        = 360;
-int SCREEN_CENTERX      = 360 / 2;
-int SCREEN_XSIZE_CONFIG = 360;
+int SCREEN_XSIZE        = 480;
+int SCREEN_CENTERX      = 480 / 2;
+int SCREEN_XSIZE_CONFIG = 480;
 
 int touchWidth  = SCREEN_XSIZE;
 int touchHeight = SCREEN_YSIZE;
@@ -134,9 +134,9 @@ int InitRenderDevice()
     SDL_GetDesktopDisplayMode(0, &dm);
 
     bool landscape = dm.h < dm.w;
-    int h          = landscape ? 360 : dm.h;
-    int w          = landscape ? dm.h : 360;
-    SCREEN_XSIZE = 360;
+    int h          = landscape ? 480 : 360;
+    int w          = landscape ? 360 : 480;
+    SCREEN_XSIZE = 480;
 #endif
 
     SCREEN_CENTERX = SCREEN_XSIZE / 2;
