@@ -144,8 +144,8 @@ int InitRenderDevice()
     SCREEN_CENTERX = SCREEN_XSIZE / 2;
     viewOffsetX    = 0;
 
-    Engine.window = SDL_CreateWindow(gameTitle, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_XSIZE * Engine.windowScale,
-                                     SCREEN_YSIZE * Engine.windowScale | flags);
+    Engine.window = SDL_CreateWindow(gameTitle, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_XSIZE,
+                                     SCREEN_YSIZE, SDL_WINDOW_ALLOW_HIGHDPI | flags);
 #if !RETRO_USING_OPENGL
     Engine.renderer = SDL_CreateRenderer(Engine.window, -1, SDL_RENDERER_ACCELERATED);
 #endif
