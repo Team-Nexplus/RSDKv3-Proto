@@ -23,17 +23,9 @@ ushort tintLookupTable[0x10000];
 #define maxVal(a, b) (a >= b ? a : b)
 #define minVal(a, b) (a <= b ? a : b)
 
-#if RETRO_USE_STRETCHED && (RETRO_GAMEPLATFORM == RETRO_MOBILE)
-    int SCREEN_XSIZE        = 360;
-    int SCREEN_CENTERX      = 360 / 2;
-    int SCREEN_XSIZE_CONFIG = 360;
-#endif
-
-#if !RETRO_USE_STRETCHED && (RETRO_GAMEPLATFORM == RETRO_MOBILE)
-    int SCREEN_XSIZE        = 424;
-    int SCREEN_CENTERX      = 424 / 2;
-    int SCREEN_XSIZE_CONFIG = 424;
-#endif
+int SCREEN_XSIZE        = 360;
+int SCREEN_CENTERX      = 360 / 2;
+int SCREEN_XSIZE_CONFIG = 360;
 
 int touchWidth  = SCREEN_XSIZE;
 int touchHeight = SCREEN_YSIZE;
@@ -135,7 +127,7 @@ int InitRenderDevice()
 #endif
 #endif
 
-#if RETRO_GAMEPLATFORM == RETRO_MOBILE && RETRO_USE_STRETCHED
+#if RETRO_GAMEPLATFORM == RETRO_MOBILE
     Engine.startFullScreen = true;
 
     SDL_DisplayMode dm;
@@ -147,24 +139,6 @@ int InitRenderDevice()
 
     SCREEN_XSIZE = ((float)SCREEN_YSIZE * h / w);
     SCREEN_XSIZE = 360;
-#endif
-
-#if RETRO_GAMEPLATFORM == RETRO_MOBILE && !RETRO_USE_STRETCHED
-    Engine.startFullScreen = true;
-
-    SDL_DisplayMode dm;
-    SDL_GetDesktopDisplayMode(0, &dm);
-
-    bool landscape = dm.h < dm.w;
-    int h          = landscape ? dm.w : dm.h;
-    int w          = landscape ? dm.h : dm.w;
-
-    SCREEN_XSIZE = ((float)SCREEN_YSIZE * h / w);
-    if (SCREEN_XSIZE % 1)
-        ++SCREEN_XSIZE;
-
-    if (SCREEN_XSIZE >= 500)
-        SCREEN_XSIZE = 500;
 #endif
 
     SCREEN_CENTERX = SCREEN_XSIZE / 2;
