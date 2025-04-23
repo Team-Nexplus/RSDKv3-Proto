@@ -9,6 +9,7 @@ option(RETRO_MOD_LOADER "Enables or disables the mod loader." ON)
 option(RETRO_USE_HW_RENDER "Enables usage of Hardware Render as an option." ON)
 option(RETRO_DISABLE_PLUS "Disables Plus. Should be set on for any public releases." OFF)
 option(RETRO_ORIGINAL_CODE "Removes any change that differs from the original code, a playable game can't be built this way." OFF)
+option(RETRO_USE_STRETCHED "Enables the game being stretched for the controls to fit your screen." ON)
 
 set(RETRO_SDL_VERSION 2 CACHE STRING "select between SDL2 and SDL1, defaults to SDL2")
 
