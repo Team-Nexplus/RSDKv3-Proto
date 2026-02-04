@@ -37,9 +37,10 @@ public class RSDKv3 extends SDLActivity {
     public String getBasePath() {
         Context c = getApplicationContext();
         requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
-        String p = Environment.getExternalStorageDirectory().getAbsolutePath() + "/RSDK/v3";
+        String p = Environment.getExternalStorageDirectory().getAbsolutePath() + "/RSDK/v3-proto";
         //getExternalStorageDirectory is deprecated. I do not care.
         new File(p).mkdirs();
         return p + "/";
     }
+
 }
